@@ -1,0 +1,24 @@
+{
+  "Persone": [
+    {
+      "nome": "Mario",
+      "cognome": "Rossi",
+      "dataNascita": {
+        "giorno": 20,
+        "mese": 9,
+        "anno": 1978
+      },
+      "skills": ["html", "Javascript"]
+    },
+    {
+      "nome": "Giacomo",
+      "cognome": "Poretti",
+      "dataNascita": {
+        "giorno": 12,
+        "mese": 6,
+        "anno": 1986
+      },
+      "skills": ["Java", "RDBMS"]
+    }
+  ]
+}
