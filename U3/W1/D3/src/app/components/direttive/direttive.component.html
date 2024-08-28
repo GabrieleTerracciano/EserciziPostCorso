@@ -1,0 +1,29 @@
+<div class="container">
+    <!-- Titolo della lista -->
+    <h2>Lista</h2>
+
+    <!-- Primo blocco: Visualizza una lista di persone (items) solo se `mostrare` è uguale a 1 -->
+    <div *ngIf="mostrare == 1">
+        <ul>
+            <!-- Iterazione sulla lista `items` con `*ngFor` -->
+            <span *ngFor="let item of items; let i = index">
+                <!-- Visualizza solo i primi 3 elementi (quando l'indice `i` è minore di 3) -->
+                <li *ngIf="i < 3">
+                    <!-- Mostra l'indice, il nome, il cognome e l'età dell'item corrente -->
+                    {{ i }}: {{item.nome}} {{item.cognome}} di anni {{item.eta}}
+                </li>
+            </span>
+        </ul>
+    </div>
+
+    <!-- Secondo blocco: Visualizza una lista di prodotti (products) solo se `mostrare` è uguale a 2 -->
+    <div *ngIf="mostrare == 2">
+        <ul>
+            <!-- Iterazione sulla lista `products` con `*ngFor` -->
+            <li *ngFor="let product of products">
+                <!-- Mostra il nome del prodotto, la categoria e il prezzo del prodotto corrente -->
+                {{product.nomeProd}}, {{product.categoria}}, di prezzo {{product.prezzo}}
+            </li>
+        </ul>
+    </div>
+</div>
