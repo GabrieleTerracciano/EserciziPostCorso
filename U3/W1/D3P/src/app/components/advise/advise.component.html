@@ -1,0 +1,23 @@
+<div>
+    <div class="px-5 py-4 bg-body-secondary">
+        <h5>Potrebbero piacerti:</h5>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let post of advised">
+                <a href="#">{{ post.title }}</a>
+                <br>
+                <span class="badge bg-primary me-1 text-uppercase" *ngFor="let tag of post.tags"> {{ tag }}</span>
+                <br>
+                {{ post.reaction }}
+            </li>
+        </ul>
+        <h5>Vedi anche:</h5>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <a href="#"><app-active-posts></app-active-posts></a>
+            </li>
+            <li class="list-group-item">
+                <a href="#"><app-inactive-posts></app-inactive-posts></a>
+            </li>
+        </ul>
+    </div>
+</div>
