@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <!-- Questo binding Angular utilizza "routerLink" per navigare alla radice dell'applicazione (homepage). -->
+        <!-- La direttiva "routerLinkActive" applica automaticamente la classe "active" quando il percorso corrisponde. -->
+        <!-- "routerLinkActiveOptions" è configurato per richiedere una corrispondenza esatta del percorso per applicare la classe "active". Quando cambia link fai girare la classe active da una route all'altra-->
+        <a class="navbar-brand" [routerLink]="['/']" routerLinkActive="active">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" [routerLink]="['/']"
+                        routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/primo']" routerLinkActive="active">Primo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/secondo']" routerLinkActive="active">Secondo</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
