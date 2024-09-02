@@ -1,0 +1,15 @@
+<h2>Aggiungi utente</h2>
+<label for="name">Nome</label>
+<input type="text" id="name" class="form-control" [(ngModel)]="newName">
+<label for="surname">Cognome</label>
+<input type="text" id="surname" class="form-control" [(ngModel)]="newSurname">
+<label for="età">Età</label>
+<input type="text" id="eta" class="form-control" [(ngModel)]="newEta">
+<label for="sex">Sesso</label>
+<select class="form-control" id="sex" [(ngModel)]="newSex">
+    <option value="" selected></option>
+    <option value="man" selected>Uomo</option>
+    <option value="woman" selected>Donna</option>
+</select>
+
+<button class="btn btn-primary mt-3 me-2" (click)="onAddUser()">Aggiungi Utente</button>
