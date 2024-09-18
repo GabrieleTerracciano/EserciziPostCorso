@@ -1,0 +1,17 @@
+<div class="container">
+    <h2 class="text-center">Post non attivi</h2>
+    <div class="container">
+        <div class="row">
+            <ng-container *ngFor="let post of posts, let i = index">
+                <div class="col-3" *ngIf="!post.completed">
+                    <div class="card">
+                        <app-post-card [post]="post" class="bg-warning">
+                            <button type="button" class="btn btn-primary btn-sm" (click)="enablePost(post.id, i)">ATTIVA</button>
+                            <button type="button" class="btn btn-secondary ms-1 btn-sm" [routerLink]="['/inactivePosts', post.id]">DETTAGLI</button>
+                        </app-post-card>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
