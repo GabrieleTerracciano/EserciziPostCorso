@@ -14,6 +14,18 @@ export class AppComponent implements OnInit, OnDestroy {
   sub!: Subscription;
   users: User[] | undefined;
 
+  newUser: {
+    first_name: string,
+    last_name: string,
+    email: string,
+    avatar: string,
+  } = {
+    first_name: '',
+    last_name: '',
+    email: '',
+    avatar: ''
+  }
+
   constructor(private usersSrv: UserService) {}
 
   ngOnInit(): void {
@@ -23,7 +35,20 @@ export class AppComponent implements OnInit, OnDestroy {
   recoveryUsers() {
     this.sub = this.usersSrv.getUsers().subscribe((results) => {
       this.users = results;
-      console.log(this.users);
+    });
+  }
+
+  generateUser() {
+    this.sub = this.usersSrv.createUser(this.newUser).subscribe((result) => {
+      this.users?.push(result);
+    });
+  }
+
+  deleteItem(id: number) {
+    this.sub = this.usersSrv.deleteUser(id).subscribe(() => {
+      const userDeleted = this.users?.find((user) => user.id == id);
+      alert(`Utente ${userDeleted?.first_name} ${userDeleted?.last_name} cancellato!`)
+      this.users = this.users?.filter((user) => user.id != id);
     });
   }
 
