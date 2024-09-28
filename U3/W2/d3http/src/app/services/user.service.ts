@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../models/user.interface';
 import { map } from 'rxjs/operators';
 
@@ -13,7 +13,11 @@ export class UserService {
 
   getUsers() {
     return this.http
-      .get<{ data: User[] }>(this.apiURL)
+      .get<{ data: User[] }>(this.apiURL, {headers: new HttpHeaders(
+        {//Questo è un headers aggiuntivo solo per questa chiamata http.
+          'Custom-header': 'Sto recuperando gli utenti'
+        }
+      )})
       .pipe(map((ris) => ris.data));
   }
 
